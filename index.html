@@ -1,9 +1,62 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>My first web page</title>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarefa prática</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="barraNav">
+        <div class="barraNav__container">
+            <a href="#home" id="barraNav__logo">COLOR</a>
+            <div class="barraNav__toggle" id="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="barraNav__menu">
+                <li class="barraNav__item">
+                    <a href="#home" class="barraNav__links" id="home-page">home</a>
+                </li>
+                <li class="barraNav__item">
+                    <a href="#motivo" class="barraNav__links" id="motivo-page">Motivos</a>
+                </li>
+                <li class="barraNav__item">
+                    <a href="#expectativas" class="barraNav__links" id="expectativas-page">Expectativas</a>
+                </li>
+                <li class="barraNav__btn">
+                    <a href="#botao" class="button" id="botao">Botao</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    </body>
+    <!--seção da introduçao-->
+    <div class="hero" id="home">
+        <div class="hero__container">
+            <h1 class="hero__heading">Introdução <span>exemplo</span></h1>
+            <p class="hero__description">exemplo de descriçao</p>  
+            <button class="main__btn"><a href="#">Explorar</a></button>
+        </div>
+    </div>
+
+    <!--motivo-->
+    <div class="main" id="motivo">
+        <div class="main__container">
+            <div class="main__img--container">
+                <div class="main__img--card">ICON</div>
+            </div>
+            <div class="main__content">
+                <h1>what do we do</h1>
+                <h2>we help bla bla bla bla</h2>
+                <p>scheduke djs djs djs</p>
+                <button class="main__btn"><a href="#">Schedule</a></button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
 </html>
