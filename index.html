@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,66 +13,107 @@
     />
 </head>
 <body>
-    <nav class="barraNav">
-        <div class="barraNav__container">
-            <a href="#home" id="barraNav__logo">COLOR</a>
-            <div class="barraNav__toggle" id="menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="barraNav__menu">
-                <li class="barraNav__item">
-                    <a href="#home" class="barraNav__links" id="home-page">home</a>
+    <nav class="barranav">
+        <div class="barranav__container">
+            <a href="#home" id="barranav__logo">Tarefa Prática</a>
+            <ul class="barranav__menu">
+                <li class="barranav__item">
+                    <a href="#home" class="barranav__links" id="home-page">introdução</a>
                 </li>
-                <li class="barraNav__item">
-                    <a href="#motivo" class="barraNav__links" id="motivo-page">Motivos</a>
+                <li class="barranav__item">
+                    <a href="#sobre" class="barranav__links" id="sobre-page">sobre mim</a>
                 </li>
-                <li class="barraNav__item">
-                    <a href="#expectativas" class="barraNav__links" id="expectativas-page">Expectativas</a>
+                <li class="barranav__item">
+                    <a href="#motivos" class="barranav__links" id="motivos-page">motivos</a>
                 </li>
-                <li class="barraNav__btn">
-                    <a href="#botao" class="button" id="botao">Botao</a>
+                <li class="barranav__item">
+                    <a href="#expectativas" class="barranav__links" id="expectativas-page">expectativas</a>
+                </li>
+                <li class="barranav__toggleb">
+                    <ion-icon class="iconmodo" name="sunny-outline"></ion-icon>
+                    <label class="switch">
+                        <span id="theme"></span>
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider round"></span>
+                    </label>
                 </li>
             </ul>
         </div>
     </nav>
-
     <!--seção da introduçao-->
     <div class="hero" id="home">
         <div class="hero__container">
-            <h1 class="hero__heading">Introdução <span>exemplo</span></h1>
+            <h1 class="hero__heading">Introdução</h1>
             <p class="hero__description">exemplo de descriçao</p>  
-            <button class="main__btn"><a href="#">Explorar</a></button>
+            <button class="hero__btn"><a href="#sobre">Continuar</a></button>
         </div>
     </div>
-
-    <!--motivo-->
-    <div class="main" id="motivo">
-        <div class="main__container">
-            <div class="main__img--container">
-                <div class="main__img--card"><i class="fas fa-layer-group"></i></div>
+    <!--seção sobre-->
+    <div class="sobre" id="sobre">
+        <div class="sobre__container">
+            <h1 class="sobre__heading">Sobre</h1>
+            <p class="sobre__description">OMG jwatts! <a href="https://dev.to/ayc0/series/12983" target="_blank">First</a> time out! Worked like a charm. Accessing the property directly! I guess I shy away from that method due to the lack of intellisense. But really once I get past setAttribute or removeAttribute and I'm in the quoted parameter any way there isn't any more intellisense to give me any more confidence! This is great news. And I actually am going to move on with the app. 1. I will now remember to try the direct method more often. But 2. I will always wonder why all the other ways that "should have worked" weren't working</p>
+            <hr class="sobre__separacao"/>
+            <div class="sobre__aba">
+                <!--<p class="sobre__botao">la la la la lelelele lili li l il li l</p>-->
+                <button class="sobre__btn"><a href="#motivos">Continuar</a></button>
+                <div class="sobre__coracao__container" id="sobre-coracao"> 
+                    <ion-icon class="sobre__iconcoracao" name="heart"></ion-icon>
+                </div>
             </div>
-            <div class="main__content">
-                <h1>what do we do</h1>
-                <h2>we help bla bla bla bla</h2>
-                <p>scheduke djs djs djs</p>
-                <button class="main__btn"><a href="#">Schedule</a></button>
+        </div>
+    </div>
+    <!--seçao motivos-->
+    <div class="motivos" id="motivos">
+        <div class="motivos__container">
+            <h1 class="motivos__heading">Motivos</h1>
+            <p class="motivos__description">As aves conservam as penas com a limpeza, aplicação de secreções protetoras e banhos de água ou pó. Enquanto algumas aves apenas se banham em água rasa, como bebedouros ou fontes, outras mergulham em águas profundas e algumas espécies arbustivas aproveitam a água da chuva que se acumula nas folhas. As aves de regiões áridas usam o solo para tomar banhos de poeira. Algumas espécies encorajam</p>
+            <hr class="motivos__separacao"/>
+            <div class="motivos__aba">
+                <button class="motivos__btn"><a href="#expectativas">Continuar</a></button>
+                <div class="motivos__coracao__container" id="motivos-coracao"> 
+                    <ion-icon class="motivos__iconcoracao" name="heart"></ion-icon>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="coracaoteste" id="coracao">
-        <div class='large-font text-center top-20'>
-            <ion-icon name="heart"></ion-icon>
+    <!--seçao expectativas-->
+    <div class="expectativas" id="expectativas">
+        <div class="expectativas__container">
+            <h1 class="expectativas__heading">Expectativas</h1>
+            <p class="expectativas__description">OMG jwatts! First time out! Worked like a charm. Accessing the property directly! I guess I shy away from that method due to the lack of intellisense. But really once I get past setAttribute or removeAttribute and I'm in the quoted parameter any way there isn't any more intellisense to give me any more confidence! This is great news. And I actually am going to move on with the app. 1. I will now remember to try the direct method more often. But 2. I will always wonder why all the other ways that "should have worked" weren't working</p>
+            <hr class="expectativas__separacao"/>
+            <div class="expectativas__aba">
+                <p class="expectativas__textofinal">obrigada por ler :)</p>
+                <div class="expectativas__coracao__container" id="expectativas-coracao"> 
+                    <ion-icon class="expectativas__iconcoracao" name="heart"></ion-icon>
+                </div>
+            </div>
         </div>
     </div>
-
-
+    <!--rodape-->
+    <div class="rodape__container">
+        <section class="social__media">
+            <div class="social__media--wrap">
+              <div class="footer__logo">
+                <a  id="footer__logo">Tarefa Prática</a>
+              </div>
+              <p class="website__rights">Feito por Letícia Soares © 2024</p>
+              <div class="social__icons">
+                <li>
+                    <a href="https://github.com/leticiaasoares?tab=repositories" class="icongithub" target="_blank"
+                  ><ion-icon name="logo-github"></ion-icon></a>
+                </li>
+                <li>
+                    <a href="mailto:leticiaoliveiras2123@gmail.com" class="iconemail" target="_blank"
+                ><ion-icon name="mail"></ion-icon></a>
+            </li>
+              </div>
+            </div>
+          </section>
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
-
-
     <script src="app.js"></script>
 </body>
 </html>
