@@ -50,7 +50,7 @@ botaoTema.onclick = () => { //muda o tema sempre que clicar no botao
 
 
 
-const highlightMenu = () => {
+const highlightMenu = () => { //faz o highlight na barra de navegação
     const elem = document.querySelector('.highlight');
     const homeMenu = document.querySelector('#home-page');
     const sobreMenu = document.querySelector('#sobre-page');
@@ -58,21 +58,21 @@ const highlightMenu = () => {
     const expectativasMenu = document.querySelector('#expectativas-page')
     let scrollPos = window.scrollY;
 
-    if(scrollPos < 600) {
-        homeMenu.classList.add('highlight');
+    if(scrollPos < 600) { //highlight na introdução
+        homeMenu.classList.add('highlight'); 
         sobreMenu.classList.remove('highlight');
         return
-    } else if(scrollPos < 1400) {
+    } else if(scrollPos < 1400) { //highlight no sobre mim
         homeMenu.classList.remove('highlight');
         sobreMenu.classList.add('highlight');
         motivoMenu.classList.remove('highlight');
         return
-    } else if(scrollPos < 2200) {
+    } else if(scrollPos < 2200) { //highlight no motivos
         sobreMenu.classList.remove('highlight');
         motivoMenu.classList.add('highlight');
         expectativasMenu.classList.remove('highlight');
         return
-    } else if(scrollPos < 3000) {
+    } else if(scrollPos < 3400) { //highlight no expectativas
         sobreMenu.classList.remove('highlight');
         motivoMenu.classList.remove('highlight');
         expectativasMenu.classList.add('highlight');
@@ -89,15 +89,91 @@ window.addEventListener('click', highlightMenu);
 
 
 
+//logica para fazer a animação dos coracoezinhos
+
+function pegaEstadoCoracao(coracao) { //olha se o coracao ja foi clicado
+    if(localStorage.getItem(coracao)) {
+        return localStorage.getItem(coracao);
+    }
+    else {
+        return 'nao'; //se nao tiver dado no localstorage o coracao nao fica selecionado
+    }
+}
+
+function ativaCoracaoIcon(coracaoIcon){ //faz a animação de de like e preenche
+    coracaoIcon.classList.toggle('active');
+}
+
+function salvaCoracao(coracao, clicou) { //salva o estado do coracao no localstorage
+    localStorage.setItem(coracao, clicou);
+}
+
+function alternaCoracao(coracao) { //alterna o estado, se for clicado de novo
+    if(coracao == 'nao'){
+        return 'sim';
+    } else {
+        return 'nao';
+    }
+}
+
+let coracaoSobre = pegaEstadoCoracao('coracaoSobre');
+let coracaoMotivos = pegaEstadoCoracao('coracaoMotivos');
+let coracaoExpectativas = pegaEstadoCoracao('coracaoExpectativas');
+
+const mensagemFinal = document.getElementById('mensagem__final');
+
 let iconSobreCoracao = document.querySelector('.sobre__iconcoracao');
 let iconMotivosCoracao = document.querySelector('.motivos__iconcoracao');
 let iconExpectativasCoracao = document.querySelector('.expectativas__iconcoracao');
-iconSobreCoracao.onclick = function() {
-    iconSobreCoracao.classList.toggle('active');
+
+//primeiro verifica se o coracao ja estava clicado, para manter o icon ativado
+if(coracaoSobre == 'sim') { 
+    ativaCoracaoIcon(iconSobreCoracao);
 }
+if(coracaoMotivos == 'sim') {
+    ativaCoracaoIcon(iconMotivosCoracao);
+}
+if(coracaoExpectativas == 'sim') {
+    ativaCoracaoIcon(iconExpectativasCoracao);
+}
+
+//muda a mensagem final se todos os corações estiverem selecionados
+if((coracaoSobre == 'sim') && (coracaoMotivos == 'sim') && (coracaoExpectativas == 'sim')){
+    mensagemFinal.innerHTML = "obrigada por ler e gostar de todas as seções <3"
+}else {
+    mensagemFinal.innerHTML = "obrigada por ler :)"
+}
+
+iconSobreCoracao.onclick = function() { //ao clicar chama as funçoes
+    coracaoSobre = alternaCoracao(coracaoSobre);
+    salvaCoracao('coracaoSobre', coracaoSobre);
+    ativaCoracaoIcon(iconSobreCoracao);
+    //muda a mensagem final se todos os corações estiverem selecionados
+    if((coracaoSobre == 'sim') && (coracaoMotivos == 'sim') && (coracaoExpectativas == 'sim')){
+        mensagemFinal.innerHTML = "obrigada por ler e gostar de todas as seções <3"
+    }else {
+        mensagemFinal.innerHTML = "obrigada por ler :)"
+    }
+}
+
 iconMotivosCoracao.onclick = function() {
-    iconMotivosCoracao.classList.toggle('active');
+    coracaoMotivos = alternaCoracao(coracaoMotivos);
+    salvaCoracao('coracaoMotivos', coracaoMotivos);
+    ativaCoracaoIcon(iconMotivosCoracao);
+    if((coracaoSobre == 'sim') && (coracaoMotivos == 'sim') && (coracaoExpectativas == 'sim')){
+        mensagemFinal.innerHTML = "obrigada por ler e gostar de todas as seções <3"
+    }else {
+        mensagemFinal.innerHTML = "obrigada por ler :)"
+    }
 }
+
 iconExpectativasCoracao.onclick = function() {
-    iconExpectativasCoracao.classList.toggle('active');
+    coracaoExpectativas = alternaCoracao(coracaoExpectativas);
+    salvaCoracao('coracaoExpectativas', coracaoExpectativas);
+    ativaCoracaoIcon(iconExpectativasCoracao);
+    if((coracaoSobre == 'sim') && (coracaoMotivos == 'sim') && (coracaoExpectativas == 'sim')){
+        mensagemFinal.innerHTML = "obrigada por ler e gostar de todas as seções <3"
+    }else {
+        mensagemFinal.innerHTML = "obrigada por ler :)"
+    }
 }
