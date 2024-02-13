@@ -227,7 +227,7 @@ input:checked + .slider:before {
     /*font-size: 40px;
     color: var(--text); 
     background-size: 100%;*/
-    font-size: 27px;
+    font-size: 25px;
     color: var(--text);
     /*text-align: justify;*/
 }
